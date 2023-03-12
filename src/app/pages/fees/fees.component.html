@@ -1,0 +1,58 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8"></div>
+<!-- Page content -->
+<div class="container-fluid mt--9">
+    <app-class-filter (onFilter)="onFilter($event)"></app-class-filter>
+    <div>          
+        <div class="row">
+            <div class="col-md-8">
+                <div *ngIf="selectedGrade && selectedSections.length" class="card-header border-0" style="height: 100%">
+                    <h1 class="text-center"> Fees Amount </h1>
+                    <div class="row fee">
+                        <div class="col-md-4 mb-3" *ngFor="let feesType of feesTypes">
+                            <div class="card">
+                                <div class="card-header"> 
+                                    {{ feesType.type }}
+                                </div>
+                                <div class="card-body">
+                                    <b> 1,20000 /- </b>
+                                </div>
+                                <div class="card-footer">
+                                    <button class="btn btn-primary btn-sm"> update </button>
+                                    <button class="btn btn-danger btn-sm"> delete </button>
+                                </div>
+                            </div>         
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="!selectedGrade || !selectedSections.length" class="card shadow empty-card">
+                    <div class="card-body text-muted pt-8">
+                      Please select class and section
+                    </div>
+                  </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card-header border-0">
+                    <h2 class="text-center"> Fee Types </h2>
+                    <div style="height: 5rem" class="alert alert-secondary d-flex align-items-center justify-content-between" role="alert" *ngFor="let feesType of feesTypes">
+                        <strong *ngIf="editableType !== feesType.id"> {{feesType.type}} </strong> 
+                        <input class="updated-fee-type font-weight-bold mr-4 form-control form-control-alternative" *ngIf="editableType === feesType.id" type="text" value="{{feesType.type}}" >
+                        <button class="btn btn-sm btn-warning" (click)="onEdit(feesType.id)"> 
+                            {{ editableType === feesType.id ? 'update' : 'edit' }} 
+                        </button>
+                    </div>
+                    <div style="height: 5rem;" class="alert alert-secondary d-flex align-items-center justify-content-between" role="alert" *ngIf="isNewType"> 
+                        <input class="font-weight-bold form-control form-control-alternative mr-4" type="text" #newFeeType>
+                        <button class="btn btn-sm btn-info" (click)="addFeeType(newFeeType)"> add </button>
+                    </div>
+
+                    <div class="d-flex flex-column">
+                        <button class="btn btn-primary"  [ngClass]="isNewType ? 'btn-danger' : 'btn-primary' " (click)="onAddFeeType()"> 
+                            {{ isNewType ? 'cancel' : 'Add fee type' }}
+                        </button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

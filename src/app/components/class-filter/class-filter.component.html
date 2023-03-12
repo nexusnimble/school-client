@@ -1,0 +1,30 @@
+<div class="card card-stats mb-4">
+    <div class="card-body">
+        <div class="row">
+        <div class="col col-md-12">
+        <h5 class="card-title text-uppercase text-muted mb-1">Select Grade</h5>
+            <button 
+            *ngFor="let grade of grades" class="btn btn-sm mt-2"
+            (click)="onGradeSelection(grade)"
+            [ngClass]="(selectedGrade && selectedGrade.className === grade.className) ? 'btn-info' : 'btn-outline-info'"
+            > {{grade.className}} 
+        </button>
+        </div>
+        <div class="col col-md-12 mt-4">
+            <h5 class="card-title text-uppercase text-muted mb-1">Select Section</h5>            
+            <div *ngIf="selectedGrade">
+                <button 
+                *ngFor="let section of sections" class="btn btn-sm mt-2"
+                (click)="onSectionSelection(section)"
+                [ngClass]="(selectedSections &&  selectedSections.includes(section))   ? 'btn-primary' : 'btn-outline-primary'"
+                > {{section.title}} 
+                </button>
+                <button class="btn btn-sm btn-warning mt-2 ml-4" (click)="onSelectAllSections()"> Select all </button>
+            </div>
+            <div *ngIf="!selectedGrade" class="alert alert-secondary mb-0" style="padding-top: 0.5rem; padding-bottom: 0.5rem;"> 
+                Please select grade above!
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>

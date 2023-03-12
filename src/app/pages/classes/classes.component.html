@@ -1,0 +1,120 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8"> </div>
+
+<div class="container-fluid mt--8">
+
+    <ng-template #classModal let-c="close" let-d="dismiss">
+        <div class="modal-header">
+          <h4 class="modal-title text-uppercase" id="modal-basic-title"> Add a new class </h4>             
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="classForm">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="surname" class="form-control-label"> Class name </label>
+                      <input type="text" formControlName="className" class="form-control form-control-alternative" id="surname" placeholder="class name">
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group"> 
+                        <label class="form-control-label"> Sections </label>
+                        <div class="row ml-3 sections">
+                            <span class="badge badge-primary d-flex align-items-center mr-1 mb-1" *ngFor="let section of sections"> 
+                                {{section.title}} 
+                                <i style="cursor: pointer;" class="ni ni-fat-remove" (click)="onSectionRemove(section)"></i>
+                            </span>
+                            <span class="badge badge-primary ml-1" *ngIf="newSection"> 
+                                <input #newSectionInput type="text" id="new-section-input" class="new-section" (keyup.enter)="onNewSectionEnter($event)" /> 
+                            </span>
+                            <span class="badge badge-primary d-flex align-items-center ml-1 mb-1" *ngIf="!newSection" style="cursor: pointer" (click)="onNewSection()"> + </span>
+                            <span class="badge badge-primary d-flex align-items-center ml-1 mb-1" *ngIf="newSection" style="cursor: pointer" (click)="onCloseNewSection()"> x </span>
+                        </div>    
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="form-control-label" for="class-teacher"> Class teacher </label>
+                        <select class="form-control" id="class-teacher">
+                            <option value="0"> Select class teacher </option>
+                            <option [value]="teacher.id" *ngFor="let teacher of teachers"> {{teacher.name}} </option>
+                        </select>    
+                    </div>
+                  </div>
+                </div>        
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-danger" (click)="c('Save click')">Cancel</button>
+          <button type="button" class="btn btn-outline-success"  (click)="onClassSubmit(c)"> Add class</button>
+        </div>
+
+      </ng-template>
+
+    <div class="row">
+        <div class="col">
+          <div class="card shadow">
+            <div class="card-header border-0 d-flex justify-content-between align-items-center">
+              <div class="d-flex align-items-center">
+                <span class="font-weight-bold ml-2"> {{classes.length}} classes found </span>
+              </div>
+              <div>
+                <button class="btn btn-primary" (click)="onAddClass(classModal)"> Add class </button>
+              </div>
+            </div>
+            
+            <div class="table-responsive" *ngIf="classes.length">
+                <table class="table align-items-center table-flush">
+                  <thead class="thead-light">
+                    <tr>
+                      <th> # </th>
+                      <th scope="col">
+                        Class name
+                      </th>
+                      <th scope=""col>
+                        Sections
+                      </th>
+                      <th>  
+                        Class teacher
+                      </th>
+                      <th>
+                        Actions
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let classItem of classes; let i = index ">
+                      <td>
+                        <span> <span class="font-weight-bold"> {{i + 1}} </span> </span>
+                      </td>  
+                      <td class="font-weight-bold">
+                        {{classItem.className}}
+                      </td>
+                      <td>
+                        <span style="font-size: 0.75rem" class="badge badge-primary m-1" *ngFor="let sec of classItem.sections">
+                          {{ sec.title }}
+                        </span>
+                      </td>
+                      <td>
+                        <b> {{classItem.teacher}} </b>
+                      </td>
+                      <td>
+                        <button class="btn btn-sm btn-warning"> update </button>                        
+                        <button class="btn btn-sm btn-danger"> delete </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+
+
+            <div *ngIf="!classes.length" class="card shadow empty-card">
+              <div class="card-body text-muted pt-8">
+                No classes created yet!
+                <br>
+                <button class="btn btn-warning" (click)="onAddClass(classModal)"> Add class </button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>

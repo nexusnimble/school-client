@@ -1,0 +1,135 @@
+<nav class="navbar navbar-horizontal navbar-expand-lg navbar-dark bg-danger">
+    <div class="container">
+      <a class="navbar-brand" style="font-size: 1.5rem;" href="#">Nexus Nimble</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-default" aria-controls="navbar-default" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar-default">
+        <div class="navbar-collapse-header">
+          <div class="row">
+            <div class="col-6 collapse-brand">
+              <a href="../../index.html">
+                <!--
+                    <img src="assets/img/brand/blue.png" />
+                -->
+              </a>
+            </div>
+            <div class="col-6 collapse-close">
+              <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-default" aria-controls="navbar-default" aria-expanded="false" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <ul class="navbar-nav ml-lg-auto align-items-center">
+          <li class="nav-item">
+            <a class="nav-link" href="#features">
+                Features
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#benefits">
+                Benefits
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#clients">
+                clients
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#reviews">
+                Reviews
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['auth/login']">
+                <button style="border-radius: 50px 50px;" class=" btn btn-primary"> Login </button>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<div class="container-fluid" style="background-color: #f5365c;">
+    <div class="container">
+        <div class="row" style="height: 55vh">
+            <div class="col d-flex align-items-center">
+                <h1 class="text-center" style="color: white; font-size: 2.5rem;">A Complete Solution For Digitally Managing Your School</h1>
+            </div>
+            <div class="col d-flex align-items-center">
+                <img src="assets/home.png" style="height: 50%; width: 75%">
+            </div>
+        </div>
+    
+    </div>
+</div>
+
+<section class="mt-6" id="features">
+    <h1 class="text-center position-relative underline pb-1"> Features </h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3" style="height: 10rem; padding-top: 1rem;" *ngFor="let feature of features">
+                <div
+                    class="feature d-flex align-items-center justify-content-center p-2 text-center">
+                    {{feature}}
+                </div>
+            </div>    
+        </div>
+    </div>
+</section>
+
+<section class="mt-6" id="benefits">
+    <h1 class="text-center position-relative underline pb-1"> Benefits </h1>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-3" style="height: 10rem; padding-top: 1rem;" *ngFor="let benefit of benefits">
+                <div 
+                    class="benefit d-flex align-items-center justify-content-center p-4 text-center">
+                    {{benefit}}
+                </div>
+            </div>    
+        </div>
+    </div>
+</section>
+
+<section class="mt-6" id="clients">
+    <h1 class="text-center position-relative underline pb-1"> Clients </h1>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-3" style="height: 10rem; padding-top: 1rem;" *ngFor="let client of clients">
+                <div 
+                    class="client d-flex align-items-center justify-content-center p-2 text-center"
+                >
+                    <img style="width: 70%; height: 40%" src="{{client}}" /> 
+                </div>
+            </div>
+        </div>
+    </div>    
+</section>
+
+<section class="mt-6" id="reviews">
+    <h1 class="text-center position-relative underline pb-1"> Reviews </h1>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6" style="height: 12rem; padding-top: 1rem;" *ngFor="let review of reviews">
+                <div 
+                    class="review p-4"
+                >
+                    <h2> {{review.name}} </h2>
+                    <span> {{review.degignation}} </span>
+                    <p class="pt-2">
+                        {{review.review}}
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="mt-5" style="min-height: 6rem; background-color: #172b4d; color: white;">
+    <p class="pt-4 pl-6"> © Copyright Nexus Nimble. All Rights Reserved. </p>
+</footer>

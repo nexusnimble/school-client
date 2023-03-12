@@ -1,0 +1,36 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8"> </div>
+
+<div class="container-fluid mt--8">
+    <app-class-filter (onFilter)="onFilter($event)"></app-class-filter>
+
+    <div class="row" *ngIf="selectedGrade && selectedSections.length">
+        <div class="card col-md-3 m-2" style="width: 18rem;" *ngFor="let subject of subjects">
+          <div class="card-body">
+            <h5 class="card-title text-uppercase">
+              {{subject.title}}
+            </h5>
+            <div>
+              <form>
+                  <div class="form-group">
+                      <label class="form-control-label"> Title </label>
+                      <input type="text" class="form-control" />
+                  </div>
+                  <div class="form-group">
+                      <label class="form-control-label"> Description </label>
+                      <textarea class="form-control"></textarea>
+                  </div>
+                  <a href="#" class="btn btn-secondary">Save only</a>
+                  <a href="#" class="btn btn-primary">Send</a>
+              </form>
+            </div>
+
+          </div>
+        </div>
+    </div>
+
+    <div *ngIf="!selectedGrade || !selectedSections.length" class="card shadow empty-card">
+      <div class="card-body text-muted pt-8">
+        Please select class and section
+      </div>
+    </div>
+</div>

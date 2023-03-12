@@ -1,0 +1,25 @@
+.empty-card{
+    background-color: #f8f8f8;
+    color: kgray;
+    font-size: 2.5rem;
+    text-align: center;
+    height: 50vh;
+}
+
+::ng-deep{
+    ngb-modal-backdrop{
+        z-index: 1045 !important;        
+    }
+}
+
+.grey-color{
+   color: grey; 
+}
+
+.lightgray-color{
+    color: lightgray;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}

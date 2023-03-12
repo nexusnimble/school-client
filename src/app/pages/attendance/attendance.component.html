@@ -1,0 +1,88 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8"> 
+</div>
+
+<div class="container-fluid mt--8">
+    <app-class-filter (onFilter)="onFilter($event)"></app-class-filter>
+
+    <!-- Table -->
+    <div class="row">
+        <div class="col">
+          <div *ngIf="selectedGrade && selectedSections.length" class="card shadow">
+            <div class="card-header border-0 d-flex justify-content-between align-items-center">
+              <div>
+                <span class="font-weight-bold ml-2"> {{students.length}} Students are in {{selectedGrade.title}} / {{selectedSections[0].title}} </span>
+              </div>
+              <div>
+                <button class="btn btn-warning"> Submit attendance </button>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <div>
+                <table class="table align-items-center table-flush">
+                  <thead class="thead-light">
+                    <tr>
+                      <!--
+                     <th scope="col">
+                        <div class="custom-control custom-checkbox">
+                          <input #checkboxAll class="custom-control-input" id="customCheck1" type="checkbox" (change)="onCheckAll()">
+                          <label class="custom-control-label" for="customCheck1"></label>
+                        </div>
+                      </th>
+                      -->
+                      <th scope="col" *ngFor="let column of columns">
+                        {{column.title}}
+                      </th>
+                      <th scope="col">
+                        <label class="custom-toggle">
+                          <input type="checkbox" (change)="onAllChange($event)">
+                          <span class="custom-toggle-slider rounded-circle"></span>
+                        </label>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let student of students;  let i = index">
+                      <!--
+                      <td>
+                        <div class="custom-control custom-checkbox">
+                          <input class="custom-control-input" id="std-{{i}}" type="checkbox" indeterminate="">
+                          <label class="custom-control-label" for="std-{{i}}"></label>
+                        </div>
+                      </td>   
+                      -->                   
+                      <td>
+                        <span class="font-weight-bold"> {{student.surName}} {{student.firstName}} </span> 
+                      </td>
+                      <td>
+                        {{student.parentName}}
+                      </td>
+                      <td>
+                        {{student.dateOfBirth}}
+                      </td>
+                      <td>
+                        {{student.address}}
+                      </td>
+                      <td>
+                        {{student.phone}}
+                      </td>
+                      <td>
+                        <label class="custom-toggle">
+                          <input type="checkbox" [checked]="attendance[student.id]">
+                          <span class="custom-toggle-slider rounded-circle"></span>
+                        </label>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="!selectedGrade || !selectedSections.length" class="card shadow empty-card">
+            <div class="card-body text-muted pt-8">
+              Please select class and section
+            </div>
+          </div>
+  
+        </div>
+      </div>
+</div>

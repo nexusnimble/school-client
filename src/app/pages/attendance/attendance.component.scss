@@ -1,0 +1,24 @@
+.empty-card{
+    background-color: #f8f8f8;
+    color: kgray;
+    font-size: 2.5rem;
+    text-align: center;
+    height: 50vh;
+}
+
+.custom-toggle-slider:before{
+    background-color: #f5365c;
+}
+
+.custom-toggle-slider{
+    border-color: #f5365c;
+}
+
+.custom-toggle input:checked + .custom-toggle-slider{
+    border-color: #2dce89;
+}
+
+.custom-toggle input:checked + .custom-toggle-slider:before {
+    background-color: #2dce89;
+}
+

@@ -1,0 +1,83 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8"></div>
+
+<div class="container-fluid mt--8">
+    <ng-template #teacherModal let-c="close" let-d="dismiss">
+        <div class="modal-header">
+          <h4 class="modal-title text-uppercase" id="modal-basic-title"> Add a new teacher </h4>        
+        </div>
+        <div class="modal-body">
+          <app-teacher-form></app-teacher-form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-danger" (click)="c('Save click')">Cancel</button>
+          <button type="button" class="btn btn-outline-success" (click)="c('Save click')">Add teacher</button>
+        </div>
+      </ng-template>
+
+
+    <div class="row">
+        <div class="col">
+          <div class="card shadow">
+            <div class="card-header border-0 d-flex justify-content-between align-items-center">
+              
+              <div class="d-flex align-items-center">
+                <span class="font-weight-bold ml-2"> {{teachers.length}} teachers found </span>
+              </div>
+              <div>
+                <button class="btn btn-primary" (click)="onAddTeacher(teacherModal)"> Add teacher </button>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <div>
+                <table class="table align-items-center table-flush">
+                  <thead class="thead-light">
+                    <tr>
+                      <th> # </th>
+                      <th scope="col" *ngFor="let column of columns">
+                        {{column.title}}
+                      </th>
+                      <th scope=""col>
+                        Actions
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let teacher of teachers; let i = index ">
+                      <td>
+                        <span> <span class="font-weight-bold"> {{i + 1}} </span> </span>
+                      </td>  
+                      <td>
+                        <span class="font-weight-bold"> {{teacher.surName}} {{teacher.name}} </span> 
+                      </td>
+                      <td>
+                        <span class="font-weight-bold"> {{teacher.qualification}} </span>
+                      </td>
+                      <td>
+                        <span class="font-weight-bold"> {{teacher.phone}} </span>
+                      </td>
+                      <td>
+                        <span class="font-weight-bold">{{teacher.dateOfBirth}} </span>
+                      </td>
+                      <td>
+                        <span class="font-weight-bold"> {{teacher.address}} </span>
+                      </td>
+                      <td>
+                        <button class="btn btn-sm btn-warning"> Edit </button>
+                        <button class="btn btn-sm btn-danger"> Delete </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>  
+          <div *ngIf="!teachers.length" class="card shadow empty-card">
+            <div class="card-body text-muted pt-8">
+              No teachers are added for this school for now. 
+            </div>
+          </div>
+  
+        </div>
+      </div>
+
+</div>
