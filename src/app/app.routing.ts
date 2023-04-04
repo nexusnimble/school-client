@@ -11,7 +11,9 @@ import { CalendarComponent } from './pages/calendar/calendar.component';
 const routes: Routes =[
   {
     path: '',
-    component: HomeLayoutComponent
+    redirectTo: 'auth',
+    pathMatch: 'full'
+    //component: HomeLayoutComponent
   }, {
     path: 'school',
     component: SchoolLayoutComponent,
