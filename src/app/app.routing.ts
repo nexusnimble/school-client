@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { HomeLayoutComponent } from './layouts/home-layout-one/home-layout.component';
 import { SchoolLayoutComponent } from './layouts/school-layout/school-layout.component';
+import { CalendarComponent } from './pages/calendar/calendar.component';
 
 const routes: Routes =[
   {
@@ -29,7 +30,12 @@ const routes: Routes =[
         loadChildren: () => import('src/app/layouts/auth-layout/auth-layout.module').then(m => m.AuthLayoutModule)
       }
     ]
-  }, {
+  }, 
+  {
+    path: "calendar",
+    component: CalendarComponent
+  },  
+  {
     path: '**',
     redirectTo: ''
   }

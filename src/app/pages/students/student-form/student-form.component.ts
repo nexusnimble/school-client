@@ -25,6 +25,87 @@ export class StudentFormComponent implements OnInit{
         zip: ['']
       });
 
+      detailSections = [
+        { 
+            id: "student",
+            title: "student" 
+        },
+        { 
+            id: "parent",
+            title: "parent / gardian" 
+        },
+        { 
+            id: "contact",
+            title: "contact" 
+        },
+        {
+            id: "attendance",
+            title: "attendance"
+        }, 
+        {
+            id: "exams",
+            title: "exams"
+        },
+        {
+            id: "fees",
+            title: "fees"
+        }
+    ]
+    selectedSection = this.detailSections[0];
+
+    exams = [
+        {
+            name: "term 1",
+            result: [
+                {
+                    subject: 'english',
+                    grade: 'A+'
+                },
+                {
+                    subject: 'maths',
+                    grade: 'A+'
+                },
+                {
+                    subject: 'science',
+                    grade: 'A+'
+                },
+                {
+                    subject: 'social',
+                    grade: 'A+'
+                },
+                {
+                    subject: 'physics',
+                    grade: 'A+'
+                },
+            ]
+        },
+        {
+            name: "term 2",
+            result: [
+                {
+                    subject: 'english',
+                    grade: 'A+'
+                },
+                {
+                    subject: 'maths',
+                    grade: 'A+'
+                },
+                {
+                    subject: 'science',
+                    grade: 'A+'
+                },
+                {
+                    subject: 'social',
+                    grade: 'A+'
+                },
+                {
+                    subject: 'physics',
+                    grade: 'A+'
+                },
+            ]
+        }
+    ]
+
     isNew: boolean = true;
 
     constructor(
@@ -70,6 +151,11 @@ export class StudentFormComponent implements OnInit{
         } else {
             console.log("update student");
         }
+    }
+
+    onSelect(event: any, selectedSection: any){
+        event.preventDefault();
+        this.selectedSection = selectedSection;
     }
 
 }

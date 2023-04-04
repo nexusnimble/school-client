@@ -19,7 +19,9 @@
                 [ngClass]="(selectedSections &&  selectedSections.includes(section))   ? 'btn-primary' : 'btn-outline-primary'"
                 > {{section.title}} 
                 </button>
-                <button class="btn btn-sm btn-warning mt-2 ml-4" (click)="onSelectAllSections()"> Select all </button>
+                <button class="btn btn-sm btn-warning mt-2 ml-4" (click)="toggleSelectAllSections()"> 
+                    {{ sections === selectedSections ?  'Clear all' : 'Select all' }} 
+                </button>
             </div>
             <div *ngIf="!selectedGrade" class="alert alert-secondary mb-0" style="padding-top: 0.5rem; padding-bottom: 0.5rem;"> 
                 Please select grade above!

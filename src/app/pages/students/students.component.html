@@ -1,7 +1,5 @@
-<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8"></div>
-
   <!-- Page content -->
-  <div class="container-fluid mt--9">
+  <div class="container-fluid" style="margin-top: -16rem">
     <ng-template #newStudentsModal let-c="close" let-d="dismiss">
       <div class="modal-header">
         <h4 class="modal-title" id="modal-basic-title">Number of students to be added: {{newStudents.length}} </h4>        
@@ -75,7 +73,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text" 
                       style="border-top-left-radius: 1.3rem;border-bottom-left-radius: 1.3rem;">
-                      <i class="fas fa-search"></i>
+                      <i class="bi bi-search"></i>
                     </span>
                   </div>
                   <input class="form-control" placeholder="Search" type="text" (input)="onSearch($event)"
@@ -114,7 +112,10 @@
                 <tbody>
                   <tr *ngFor="let student of students">
                     <td>
-                      <span class="font-weight-bold"> {{student.surName}} {{student.name}} </span> 
+                      <span class="font-weight-bold"> {{student.admissionNumber}} </span>
+                    </td>
+                    <td>
+                      <span class="font-weight-bold"> {{student.surName}} {{student.firstName}} {{student.lastName}} </span> 
                     </td>
                     <td>
                       <span class="font-weight-bold"> {{student.class}} </span>
@@ -126,11 +127,8 @@
                       <span class="font-weight-bold"> {{student.phone}} </span>
                     </td>
                     <td>
-                      <a [routerLink]="['edit', student.id ]" class="btn btn-sm btn-warning"> Edit </a>
-                      <button class="btn btn-sm btn-danger"> Delete </button>
-                    </td>
-                    <td>
-                      <a [routerLink]="[ student.id ]">
+                      <!-- [routerLink]="[ student.id ]"  -->
+                      <a [routerLink]="['edit', student.id ]">
                         <i class="ni ni-bold-right"
                           style="font-size: 1.2rem; cursor: pointer;"
                         ></i>

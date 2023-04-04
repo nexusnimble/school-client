@@ -21,10 +21,14 @@ export class ClassFilter implements OnInit{
     ngOnInit(): void {
         this.schoolConfigService.getClasses().subscribe((data) => {
             this.grades = data;
-        })
+            //this.onGradeSelection(data[0]);
+            //this.onSectionSelection(data[0].sections[0])
+        });
+        
     }
 
     onGradeSelection(grade: any){
+        this.selectedSections = [];
         if(!this.selectedGrade || this.selectedGrade.className !== grade.className){
             this.selectedGrade = grade;
             this.schoolConfigService.getSections(this.selectedGrade.id).subscribe(data => {
@@ -47,11 +51,19 @@ export class ClassFilter implements OnInit{
         this.onFilter.emit({ 
             selectedGrade: this.selectedGrade,
             selectedSections: this.selectedSections
-        })
+        });
     }
 
-    onSelectAllSections() {
-        this.selectedSections = this.sections;
+    toggleSelectAllSections() {
+        if(this.selectedSections === this.sections){
+            this.selectedSections = [];
+        } else {
+            this.selectedSections = this.sections;
+        }
+        this.onFilter.emit({ 
+            selectedGrade: this.selectedGrade,
+            selectedSections: this.selectedSections
+        }); 
     }
 
 }

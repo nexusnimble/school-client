@@ -1,0 +1,33 @@
+<div class="d-flex" style="align-items: flex-start">
+      <div class="btn-group">
+        <button
+          class="btn btn-sm btn-primary"
+          mwlCalendarPreviousView
+          [view]="view"
+          [(viewDate)]="viewDate"
+          (viewDateChange)="viewDateChange.next(viewDate)"
+        >
+            <i class="bi bi-caret-left-fill"></i>
+        </button>
+        <div
+          class="btn btn-sm btn-outline-secondary"
+          mwlCalendarToday
+          [(viewDate)]="viewDate"
+          (viewDateChange)="viewDateChange.next(viewDate)"
+        >
+          Today
+        </div>
+        <div
+          class="btn btn-sm btn-primary"
+          mwlCalendarNextView
+          [view]="view"
+          [(viewDate)]="viewDate"
+          (viewDateChange)="viewDateChange.next(viewDate)"
+        >
+            <i class="bi bi bi-caret-left-fill"></i>
+        </div>
+      </div>
+      <h3 class="ml-2">{{ viewDate | calendarDate: view + 'ViewTitle':locale }}</h3>
+ 
+</div>
+  <br />

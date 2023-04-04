@@ -1,4 +1,4 @@
-<div class="d-flex justify-content-between align-items-center p-3">
+<div class="d-flex justify-content-between align-items-center">
   <button class="btn btn-secondary" (click)="onPreviousMonth()"> Previous </button>
   <b> {{ calendarCreator.getMonthName(monthNumber) }} &nbsp; {{ year }} </b>
   <button class="btn btn-secondary" (click)="onNextMonth()"> Next </button>
@@ -9,12 +9,19 @@
 
 
 <div class="calendar">
-  <span *ngFor='let weekDay of weekDaysName' class="day has-day text-center">
-    {{ weekDay }}
-  </span>
-  <span *ngFor='let day of monthDays' class="day text-center" [class.has-day]="!!day.number" >
-    <span class="d-flex align-items-center justify-content-center" style="width: 100%; height: 100%">
-        {{ day.number }}
+  <div class="d-flex justify-content-between">
+    <span style="width: 3rem; height: 3rem;" *ngFor='let weekDay of weekDaysName' class="day">
+      <span class="d-flex align-items-center justify-content-center" style="width: 100%; height: 100%">
+        {{ weekDay }}
+      </span>  
     </span>
-  </span>
+  </div>
+
+  <div class="d-flex justify-content-between" *ngFor="let cDay of cDays">
+    <span style="width: 3rem; height: 3rem;" *ngFor="let d of cDay"> 
+      <span class="d-flex align-items-center justify-content-center" style="width: 100%; height: 100%">
+        {{d.number}} 
+      </span>
+    </span>
+  </div>
 </div>

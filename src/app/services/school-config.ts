@@ -3,27 +3,45 @@ import { combineLatest, map, of } from "rxjs";
 import { TeachersService } from "./teachers.service";
 
 
-const CLASSES: any = [{
+const CLASSES: any = [
+    {
     "id": 1,
     "classNumber": 1,
     "className": "Nursery",
-    "classTeacher": "",
+    "feesDetails": [
+        { id: "1", type: 'School fee' },
+        { id: "2", type: 'Tution fee' },
+        { id: "3", type: 'Lab fee' },
+        { id: "4", type: 'Transport fee' },
+    ],
     "sections": [{
-        "id": 1,
+        "id": "1",
         "title": "section 1",
         "feesDetails": {
             "1": 12000,
             "2": 13000
         }
     }, {
-        "id": 1,
-        "title": "section 2"
+        "id": "2",
+        "title": "section 2",
+        "feesDetails": {
+            "1": 12000,
+            "2": 13000
+        }
     }, {
-        "id": 1,
-        "title": "section 3"
+        "id": "3",
+        "title": "section 3",
+        "feesDetails": {
+            "1": 12000,
+            "2": 13000
+        }
     }, {
-        "id": 1,
-        "title": "section 4"
+        "id": "4",
+        "title": "section 4",
+        "feesDetails": {
+            "1": 12000,
+            "2": 13000
+        }
     }],
     "teacher": 1
 }, {
@@ -38,13 +56,13 @@ const CLASSES: any = [{
             "2": 13000
         }
     }, {
-        "id": 1,
+        "id": "2",
         "title": "section 2"
     }, {
-        "id": 1,
+        "id": "3",
         "title": "section 3"
     }, {
-        "id": 1,
+        "id": "4",
         "title": "section 4"
     }],
     "teacher": 2
@@ -53,20 +71,20 @@ const CLASSES: any = [{
     "classNumber": 3,
     "className": "UKG",
     "sections": [{
-        "id": 1,
+        "id": "1",
         "title": "section 1",
         "feesDetails": {
             "1": 12000,
             "2": 13000
         }
     }, {
-        "id": 1,
+        "id": "2",
         "title": "section 2"
     }, {
-        "id": 1,
+        "id": "3",
         "title": "section 3"
     }, {
-        "id": 1,
+        "id": "4",
         "title": "section 4"
     }],
     "teacher": 3
@@ -75,14 +93,14 @@ const CLASSES: any = [{
     "classNumber": 4,
     "className": "1st grade",
     "sections": [{
-        "id": 1,
+        "id": "1",
         "title": "section 1",
         "feesDetails": {
             "1": 12000,
             "2": 13000
         }
     }, {
-        "id": 1,
+        "id": "2",
         "title": "section 2"
     }, {
         "id": 1,
@@ -97,20 +115,20 @@ const CLASSES: any = [{
     "classNumber": 5,
     "className": "2nd grade",
     "sections": [{
-        "id": 1,
+        "id": "1",
         "title": "section 1",
         "feesDetails": {
             "1": 12000,
             "2": 13000
         }
     }, {
-        "id": 1,
+        "id": "2",
         "title": "section 2"
     }, {
-        "id": 1,
+        "id": "3",
         "title": "section 3"
     }, {
-        "id": 1,
+        "id": "4",
         "title": "section 4"
     }],
     "teacher": 5
@@ -119,20 +137,20 @@ const CLASSES: any = [{
     "classNumber": 6,
     "className": "3rd grade",
     "sections": [{
-        "id": 1,
+        "id": "1",
         "title": "section 1",
         "feesDetails": {
             "1": 12000,
             "2": 13000
         }
     }, {
-        "id": 1,
+        "id": "2",
         "title": "section 2"
     }, {
-        "id": 1,
+        "id": "3",
         "title": "section 3"
     }, {
-        "id": 1,
+        "id": "4",
         "title": "section 4"
     }],
     "teacher": 6
@@ -141,20 +159,20 @@ const CLASSES: any = [{
     "classNumber": 7,
     "className": "4th grade",
     "sections": [{
-        "id": 1,
+        "id": "1",
         "title": "section 1",
         "feesDetails": {
             "1": 12000,
             "2": 13000
         }
     }, {
-        "id": 1,
+        "id": "2",
         "title": "section 2"
     }, {
-        "id": 1,
+        "id": "3",
         "title": "section 3"
     }, {
-        "id": 1,
+        "id": "4",
         "title": "section 4"
     }],
     "teacher": 7
@@ -163,20 +181,20 @@ const CLASSES: any = [{
     "classNumber": 8,
     "className": "5th grade",
     "sections": [{
-        "id": 1,
+        "id": "1",
         "title": "section 1",
         "feesDetails": {
             "1": 12000,
             "2": 13000
         }
     }, {
-        "id": 1,
+        "id": "2",
         "title": "section 2"
     }, {
-        "id": 1,
+        "id": "3",
         "title": "section 3"
     }, {
-        "id": 1,
+        "id": "4",
         "title": "section 4"
     }],
     "teacher": 8
@@ -185,20 +203,20 @@ const CLASSES: any = [{
     "classNumber": 9,
     "className": "6th grade",
     "sections": [{
-        "id": 1,
+        "id": "1",
         "title": "section 1",
         "feesDetails": {
             "1": 12000,
             "2": 13000
         }
     }, {
-        "id": 1,
+        "id": "2",
         "title": "section 2"
     }, {
-        "id": 1,
+        "id": "3",
         "title": "section 3"
     }, {
-        "id": 1,
+        "id": "4",
         "title": "section 4"
     }],
     "teacher": 9
@@ -207,20 +225,20 @@ const CLASSES: any = [{
     "classNumber": 10,
     "className": "7th grade",
     "sections": [{
-        "id": 1,
+        "id": "1",
         "title": "section 1",
         "feesDetails": {
             "1": 12000,
             "2": 13000
         }
     }, {
-        "id": 1,
+        "id": "2",
         "title": "section 2"
     }, {
-        "id": 1,
+        "id": "3",
         "title": "section 3"
     }, {
-        "id": 1,
+        "id": "4",
         "title": "section 4"
     }],
     "teacher": 10
@@ -229,20 +247,20 @@ const CLASSES: any = [{
     "classNumber": 11,
     "className": "8th grade",
     "sections": [{
-        "id": 1,
+        "id": "1",
         "title": "section 1",
         "feesDetails": {
             "1": 12000,
             "2": 13000
         }
     }, {
-        "id": 1,
+        "id": "2",
         "title": "section 2"
     }, {
-        "id": 1,
+        "id": "3",
         "title": "section 3"
     }, {
-        "id": 1,
+        "id": "4",
         "title": "section 4"
     }],
     "teacher": 11
@@ -251,20 +269,20 @@ const CLASSES: any = [{
     "classNumber": 12,
     "className": "9th grade",
     "sections": [{
-        "id": 1,
+        "id": "1",
         "title": "section 1",
         "feesDetails": {
             "1": 12000,
             "2": 13000
         }
     }, {
-        "id": 1,
+        "id": "2",
         "title": "section 2"
     }, {
-        "id": 1,
+        "id": "3",
         "title": "section 3"
     }, {
-        "id": 1,
+        "id": "4",
         "title": "section 4"
     }],
     "teacher": 12
@@ -273,31 +291,24 @@ const CLASSES: any = [{
     "classNumber": 13,
     "className": "10th grade",
     "sections": [{
-        "id": 1,
+        "id": "1",
         "title": "section 1",
         "feesDetails": {
             "1": 12000,
             "2": 13000
         }
     }, {
-        "id": 1,
+        "id": "2",
         "title": "section 2"
     }, {
-        "id": 1,
+        "id": "3",
         "title": "section 3"
     }, {
-        "id": 1,
+        "id": "4",
         "title": "section 4"
     }],
     "teacher": 1
 }];
-
-const FEES_TYPES = [
-    { id: 1, type: 'School fee' },
-    { id: 2, type: 'Tution fee' },
-    { id: 3, type: 'Lab fee' },
-    { id: 4, type: 'Transport fee' },
-];
 
 @Injectable({
     providedIn: "root"
@@ -336,7 +347,7 @@ export class SchoolConfigService {
         )
     }
     getFeesTypes(){
-        return of(FEES_TYPES);
+        return of(CLASSES[0].feesDetails);
     }
 
     getFeesDetails(filters: any){

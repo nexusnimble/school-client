@@ -27,7 +27,7 @@ export class ExamsComponent implements OnInit {
         private examsService: ExamsService
     ){
         config.backdrop = 'static';
-        config.size = 'lgx';
+        config.size = 'lg';
         config.keyboard = false;
         config.scrollable = true;
     }
@@ -36,6 +36,7 @@ export class ExamsComponent implements OnInit {
         this.examsService.getExams().subscribe((exams: any) => {
             this.exams = exams;
         })
+
     }
 
     onCreateExam(content: any){

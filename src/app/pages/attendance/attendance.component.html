@@ -1,7 +1,4 @@
-<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8"> 
-</div>
-
-<div class="container-fluid mt--8">
+<div class="container-fluid" style="margin-top: -16rem">
     <app-class-filter (onFilter)="onFilter($event)"></app-class-filter>
 
     <!-- Table -->
@@ -9,8 +6,21 @@
         <div class="col">
           <div *ngIf="selectedGrade && selectedSections.length" class="card shadow">
             <div class="card-header border-0 d-flex justify-content-between align-items-center">
-              <div>
-                <span class="font-weight-bold ml-2"> {{students.length}} Students are in {{selectedGrade.title}} / {{selectedSections[0].title}} </span>
+              <div class="d-flex align-items-center">
+                <div class="form-group mb-0" >
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" 
+                        style="border-top-left-radius: 1.3rem;border-bottom-left-radius: 1.3rem;">
+                        <i class="bi bi-search"></i>
+                      </span>
+                    </div>
+                    <input class="form-control" placeholder="Search" type="text" (input)="onSearch($event)"
+                      style="border-top-right-radius: 1.3rem; border-bottom-right-radius: 1.3rem; width: 15rem;"
+                    >  
+                  </div>
+                </div>
+                <span class="font-weight-bold ml-2"> {{students.length}} students found </span>
               </div>
               <div>
                 <button class="btn btn-warning"> Submit attendance </button>
@@ -33,10 +43,18 @@
                         {{column.title}}
                       </th>
                       <th scope="col">
+                        <!--
                         <label class="custom-toggle">
                           <input type="checkbox" (change)="onAllChange($event)">
                           <span class="custom-toggle-slider rounded-circle"></span>
                         </label>
+                        -->
+                        <i class="bi bi-check-square attendance-check"
+                        [ngClass]="{ 
+                          'bi-check-square': allAttendance, 
+                          'bi-x-square': !allAttendance }"
+                          (click)="onAllChange()"
+                        ></i>
                       </th>
                     </tr>
                   </thead>
@@ -57,19 +75,23 @@
                         {{student.parentName}}
                       </td>
                       <td>
-                        {{student.dateOfBirth}}
-                      </td>
-                      <td>
                         {{student.address}}
                       </td>
                       <td>
                         {{student.phone}}
                       </td>
                       <td>
+                        <!--
                         <label class="custom-toggle">
                           <input type="checkbox" [checked]="attendance[student.id]">
                           <span class="custom-toggle-slider rounded-circle"></span>
                         </label>
+                        -->
+                        <i class="bi attendance-check"
+                          (click)="onAttendance(student.id)"
+                          [ngClass]="{ 
+                            'bi-check-square': attendance[student.id], 
+                            'bi-x-square': !attendance[student.id] }" ></i>
                       </td>
                     </tr>
                   </tbody>

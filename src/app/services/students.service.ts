@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { delay, of } from "rxjs";
 
 const STUDENTS = [{
+  "admissionNumber": 1,
   "id": 1,
   "surName": "Pena",
   "firstName": "Noel",
@@ -16,8 +17,16 @@ const STUDENTS = [{
   "zip": "54365",
   "dateOfBirth": "2014-01-10",
   "class": 1,
-  "section": 1
+  "section": "1",
+  "feeDetails": {
+      "1": [{
+          "amount": "10000",
+          "date": "2014-01-10"
+      }],
+      "2": []
+  }
 }, {
+  "admissionNumber": 2,
   "id": 2,
   "surName": "Cardenas",
   "firstName": "Lavonne",
@@ -32,8 +41,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2019-05-28",
   "class": 1,
-  "section": 2
+  "section": "2"
 }, {
+  "admissionNumber": 3,
   "id": 3,
   "surName": "Santiago",
   "firstName": "Simpson",
@@ -48,8 +58,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2014-07-21",
   "class": 1,
-  "section": 3
+  "section": "3"
 }, {
+  "admissionNumber": 4,
   "id": 4,
   "surName": "Mcdowell",
   "firstName": "Sharp",
@@ -64,8 +75,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2014-12-03",
   "class": 1,
-  "section": 4
+  "section": "4"
 }, {
+  "admissionNumber": 5,
   "id": 5,
   "surName": "Talley",
   "firstName": "Bernice",
@@ -80,8 +92,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2021-06-12",
   "class": 2,
-  "section": 1
+  "section": "1"
 }, {
+  "admissionNumber": 6,
   "id": 6,
   "surName": "Peters",
   "firstName": "Sullivan",
@@ -96,8 +109,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2014-03-26",
   "class": 2,
-  "section": 2
+  "section": "2"
 }, {
+  "admissionNumber": 7,
   "id": 7,
   "surName": "Murray",
   "firstName": "Aileen",
@@ -112,8 +126,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2019-07-23",
   "class": 2,
-  "section": 3
+  "section": "3"
 }, {
+  "admissionNumber": 8,
   "id": 8,
   "surName": "Rowland",
   "firstName": "Ilene",
@@ -128,8 +143,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2019-10-05",
   "class": 2,
-  "section": 4
+  "section": "4"
 }, {
+  "admissionNumber": 9,
   "id": 9,
   "surName": "Preston",
   "firstName": "Jillian",
@@ -144,8 +160,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2018-07-03",
   "class": 3,
-  "section": 1
+  "section": "1"
 }, {
+  "admissionNumber": 10,
   "id": 10,
   "surName": "Carlson",
   "firstName": "Josefa",
@@ -160,8 +177,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2017-12-23",
   "class": 3,
-  "section": 2
+  "section": "2"
 }, {
+  "admissionNumber": 11,
   "id": 11,
   "surName": "Livingston",
   "firstName": "Patty",
@@ -176,8 +194,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2017-04-11",
   "class": 3,
-  "section": 3
+  "section": "3"
 }, {
+  "admissionNumber": 12,
   "id": 12,
   "surName": "Dickson",
   "firstName": "Esther",
@@ -192,8 +211,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2019-07-22",
   "class": 3,
-  "section": 4
+  "section": "4"
 }, {
+  "admissionNumber": 13,
   "id": 13,
   "surName": "Rutledge",
   "firstName": "Adeline",
@@ -208,8 +228,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2015-10-17",
   "class": 4,
-  "section": 1
+  "section": "1"
 }, {
+  "admissionNumber": 14,
   "id": 14,
   "surName": "Erickson",
   "firstName": "Vasquez",
@@ -224,8 +245,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2014-10-14",
   "class": 4,
-  "section": 2
+  "section": "2"
 }, {
+  "admissionNumber": 15,
   "id": 15,
   "surName": "Carney",
   "firstName": "Terrell",
@@ -240,8 +262,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2014-01-07",
   "class": 4,
-  "section": 3
+  "section": "3"
 }, {
+  "admissionNumber": 16,
   "id": 16,
   "surName": "Burgess",
   "firstName": "Melissa",
@@ -256,8 +279,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2014-04-27",
   "class": 4,
-  "section": 4
+  "section": "4"
 }, {
+  "admissionNumber": 17,
   "id": 17,
   "surName": "Stone",
   "firstName": "Deanna",
@@ -272,8 +296,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2016-01-29",
   "class": 5,
-  "section": 1
+  "section": "1"
 }, {
+  "admissionNumber": 18,
   "id": 18,
   "surName": "Whitehead",
   "firstName": "Taylor",
@@ -288,8 +313,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2021-01-18",
   "class": 5,
-  "section": 2
+  "section": "2"
 }, {
+  "admissionNumber": 19,
   "id": 19,
   "surName": "West",
   "firstName": "Parker",
@@ -304,8 +330,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2020-07-30",
   "class": 5,
-  "section": 3
+  "section": "3"
 }, {
+  "admissionNumber": 20,
   "id": 20,
   "surName": "Floyd",
   "firstName": "Powers",
@@ -320,8 +347,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2019-06-23",
   "class": 5,
-  "section": 4
+  "section": "4"
 }, {
+  "admissionNumber": 21,
   "id": 21,
   "surName": "Bradford",
   "firstName": "Carroll",
@@ -336,8 +364,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2016-07-27",
   "class": 6,
-  "section": 1
+  "section": "1"
 }, {
+  "admissionNumber": 22,
   "id": 22,
   "surName": "Beach",
   "firstName": "Park",
@@ -352,8 +381,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2020-03-20",
   "class": 6,
-  "section": 2
+  "section": "2"
 }, {
+  "admissionNumber": 23,
   "id": 23,
   "surName": "Caldwell",
   "firstName": "Maura",
@@ -368,8 +398,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2019-09-16",
   "class": 6,
-  "section": 3
+  "section": "3"
 }, {
+  "admissionNumber": 24,
   "id": 24,
   "surName": "Perkins",
   "firstName": "Addie",
@@ -384,8 +415,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2022-07-30",
   "class": 6,
-  "section": 4
+  "section": "4"
 }, {
+  "admissionNumber": 25,
   "id": 25,
   "surName": "Fernandez",
   "firstName": "Gayle",
@@ -400,8 +432,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2022-08-24",
   "class": 7,
-  "section": 1
+  "section": "1"
 }, {
+  "admissionNumber": 26,
   "id": 26,
   "surName": "Sullivan",
   "firstName": "Gutierrez",
@@ -416,8 +449,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2021-01-02",
   "class": 7,
-  "section": 2
+  "section": "2"
 }, {
+  "admissionNumber": 27,
   "id": 27,
   "surName": "Rodgers",
   "firstName": "Francisca",
@@ -432,8 +466,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2019-10-09",
   "class": 7,
-  "section": 3
+  "section": "3"
 }, {
+  "admissionNumber": 28,
   "id": 28,
   "surName": "Goff",
   "firstName": "Marina",
@@ -448,8 +483,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2020-01-21",
   "class": 7,
-  "section": 4
+  "section": "4"
 }, {
+  "admissionNumber": 29,
   "id": 29,
   "surName": "Keller",
   "firstName": "Donovan",
@@ -464,8 +500,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2019-03-07",
   "class": 8,
-  "section": 1
+  "section": "1"
 }, {
+  "admissionNumber": 30,
   "id": 30,
   "surName": "Burnett",
   "firstName": "Reid",
@@ -480,8 +517,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2022-02-23",
   "class": 8,
-  "section": 2
+  "section": "2"
 }, {
+  "admissionNumber": 31,
   "id": 31,
   "surName": "Steele",
   "firstName": "Bray",
@@ -496,8 +534,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2017-11-06",
   "class": 8,
-  "section": 3
+  "section": "3"
 }, {
+  "admissionNumber": 32,
   "id": 32,
   "surName": "Moreno",
   "firstName": "Benita",
@@ -512,8 +551,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2018-06-23",
   "class": 8,
-  "section": 4
+  "section": "4"
 }, {
+  "admissionNumber": 33,
   "id": 33,
   "surName": "Norman",
   "firstName": "Milagros",
@@ -528,8 +568,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2021-11-19",
   "class": 9,
-  "section": 1
+  "section": "1"
 }, {
+  "admissionNumber": 34,
   "id": 34,
   "surName": "Hamilton",
   "firstName": "Bonita",
@@ -544,8 +585,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2021-01-26",
   "class": 9,
-  "section": 2
+  "section": "2"
 }, {
+  "admissionNumber": 35,
   "id": 35,
   "surName": "Baker",
   "firstName": "Rosetta",
@@ -560,8 +602,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2014-09-04",
   "class": 9,
-  "section": 3
+  "section": "3"
 }, {
+  "admissionNumber": 36,
   "id": 36,
   "surName": "Allen",
   "firstName": "Massey",
@@ -576,8 +619,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2022-04-24",
   "class": 9,
-  "section": 4
+  "section": "4"
 }, {
+  "admissionNumber": 37,
   "id": 37,
   "surName": "Wolfe",
   "firstName": "Lupe",
@@ -592,8 +636,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2018-07-10",
   "class": 10,
-  "section": 1
+  "section": "1"
 }, {
+  "admissionNumber": 38,
   "id": 38,
   "surName": "Schroeder",
   "firstName": "Cooper",
@@ -608,8 +653,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2019-01-21",
   "class": 10,
-  "section": 2
+  "section": "2"
 }, {
+  "admissionNumber": 39,
   "id": 39,
   "surName": "Barber",
   "firstName": "Perez",
@@ -624,8 +670,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2014-08-14",
   "class": 10,
-  "section": 3
+  "section": "3"
 }, {
+  "admissionNumber": 40,
   "id": 40,
   "surName": "Duran",
   "firstName": "Ross",
@@ -640,8 +687,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2016-04-09",
   "class": 10,
-  "section": 4
+  "section": "4"
 }, {
+  "admissionNumber": 41,
   "id": 41,
   "surName": "Mckee",
   "firstName": "Lindsay",
@@ -656,8 +704,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2018-09-20",
   "class": 11,
-  "section": 1
+  "section": "1"
 }, {
+  "admissionNumber": 42,
   "id": 42,
   "surName": "Hurst",
   "firstName": "Montgomery",
@@ -672,8 +721,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2022-06-28",
   "class": 11,
-  "section": 2
+  "section": "2"
 }, {
+  "admissionNumber": 43,
   "id": 43,
   "surName": "Velasquez",
   "firstName": "Marjorie",
@@ -688,8 +738,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2014-11-05",
   "class": 11,
-  "section": 3
+  "section": "3"
 }, {
+  "admissionNumber": 44,
   "id": 44,
   "surName": "English",
   "firstName": "Michael",
@@ -704,8 +755,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2014-08-25",
   "class": 11,
-  "section": 4
+  "section": "4"
 }, {
+  "admissionNumber": 45,
   "id": 45,
   "surName": "Valencia",
   "firstName": "Petersen",
@@ -720,8 +772,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2021-08-29",
   "class": 12,
-  "section": 1
+  "section": "1"
 }, {
+  "admissionNumber": 46,
   "id": 46,
   "surName": "Carey",
   "firstName": "Buchanan",
@@ -736,8 +789,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2016-11-23",
   "class": 12,
-  "section": 2
+  "section": "2"
 }, {
+  "admissionNumber": 47,
   "id": 47,
   "surName": "Waters",
   "firstName": "Paul",
@@ -752,8 +806,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2018-10-14",
   "class": 12,
-  "section": 3
+  "section": "3"
 }, {
+  "admissionNumber": 48,
   "id": 48,
   "surName": "Vance",
   "firstName": "Vinson",
@@ -768,8 +823,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2016-02-24",
   "class": 12,
-  "section": 4
+  "section": "4"
 }, {
+  "admissionNumber": 49,
   "id": 49,
   "surName": "Hebert",
   "firstName": "Wyatt",
@@ -784,8 +840,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2020-09-24",
   "class": 13,
-  "section": 1
+  "section": "1"
 }, {
+  "admissionNumber": 50,
   "id": 50,
   "surName": "Langley",
   "firstName": "Sherman",
@@ -800,8 +857,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2015-05-20",
   "class": 13,
-  "section": 2
+  "section": "2"
 }, {
+  "admissionNumber": 51,
   "id": 51,
   "surName": "Blankenship",
   "firstName": "Cathryn",
@@ -816,8 +874,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2016-09-04",
   "class": 13,
-  "section": 3
+  "section": "3"
 }, {
+  "admissionNumber": 52,
   "id": 52,
   "surName": "Spencer",
   "firstName": "Jaclyn",
@@ -832,8 +891,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2016-09-29",
   "class": 13,
-  "section": 4
+  "section": "4"
 }, {
+  "admissionNumber": 53,
   "id": 53,
   "surName": "Benson",
   "firstName": "Eloise",
@@ -848,8 +908,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2016-09-11",
   "class": 1,
-  "section": 1
+  "section": "1"
 }, {
+  "admissionNumber": 54,
   "id": 54,
   "surName": "Avila",
   "firstName": "Keisha",
@@ -864,8 +925,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2022-05-01",
   "class": 1,
-  "section": 2
+  "section": "2"
 }, {
+  "admissionNumber": 55,
   "id": 55,
   "surName": "Welch",
   "firstName": "Pickett",
@@ -880,8 +942,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2015-06-04",
   "class": 1,
-  "section": 3
+  "section": "3"
 }, {
+  "admissionNumber": 56,
   "id": 56,
   "surName": "Franco",
   "firstName": "Ashlee",
@@ -896,8 +959,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2018-08-26",
   "class": 1,
-  "section": 4
+  "section": "4"
 }, {
+  "admissionNumber": 57,
   "id": 57,
   "surName": "Potts",
   "firstName": "Dominguez",
@@ -912,8 +976,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2018-01-04",
   "class": 2,
-  "section": 1
+  "section": "1"
 }, {
+  "admissionNumber": 58,
   "id": 58,
   "surName": "Ashley",
   "firstName": "Rena",
@@ -928,8 +993,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2016-07-31",
   "class": 2,
-  "section": 2
+  "section": "2"
 }, {
+  "admissionNumber": 59,
   "id": 59,
   "surName": "Knowles",
   "firstName": "Houston",
@@ -944,8 +1010,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2020-06-17",
   "class": 2,
-  "section": 3
+  "section": "3"
 }, {
+  "admissionNumber": 60,
   "id": 60,
   "surName": "Hanson",
   "firstName": "Terry",
@@ -960,8 +1027,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2021-04-20",
   "class": 2,
-  "section": 4
+  "section": "4"
 }, {
+  "admissionNumber": 61,
   "id": 61,
   "surName": "Maxwell",
   "firstName": "Debbie",
@@ -976,8 +1044,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2022-10-19",
   "class": 3,
-  "section": 1
+  "section": "1"
 }, {
+  "admissionNumber": 62,
   "id": 62,
   "surName": "Jennings",
   "firstName": "Patricia",
@@ -992,8 +1061,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2018-09-06",
   "class": 3,
-  "section": 2
+  "section": "2"
 }, {
+  "admissionNumber": 63,
   "id": 63,
   "surName": "Winters",
   "firstName": "Jamie",
@@ -1008,8 +1078,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2018-09-16",
   "class": 3,
-  "section": 3
+  "section": "3"
 }, {
+  "admissionNumber": 64,
   "id": 64,
   "surName": "Shepherd",
   "firstName": "Gabriela",
@@ -1024,8 +1095,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2014-12-19",
   "class": 3,
-  "section": 4
+  "section": "4"
 }, {
+  "admissionNumber": 65,
   "id": 65,
   "surName": "Greene",
   "firstName": "Sharlene",
@@ -1040,8 +1112,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2015-01-27",
   "class": 4,
-  "section": 1
+  "section": "1"
 }, {
+  "admissionNumber": 66,
   "id": 66,
   "surName": "Underwood",
   "firstName": "Monica",
@@ -1056,8 +1129,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2019-10-26",
   "class": 4,
-  "section": 2
+  "section": "2"
 }, {
+  "admissionNumber": 67,
   "id": 67,
   "surName": "Malone",
   "firstName": "Lillian",
@@ -1072,8 +1146,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2014-01-26",
   "class": 4,
-  "section": 3
+  "section": "3"
 }, {
+  "admissionNumber": 68,
   "id": 68,
   "surName": "Barnes",
   "firstName": "Cooke",
@@ -1088,8 +1163,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2022-01-24",
   "class": 4,
-  "section": 4
+  "section": "4"
 }, {
+  "admissionNumber": 69,
   "id": 69,
   "surName": "Duffy",
   "firstName": "Snider",
@@ -1104,8 +1180,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2015-07-10",
   "class": 5,
-  "section": 1
+  "section": "1"
 }, {
+  "admissionNumber": 70,
   "id": 70,
   "surName": "Roth",
   "firstName": "Cathleen",
@@ -1120,8 +1197,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2021-05-27",
   "class": 5,
-  "section": 2
+  "section": "2"
 }, {
+  "admissionNumber": 71,
   "id": 71,
   "surName": "Albert",
   "firstName": "Mathis",
@@ -1136,8 +1214,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2019-06-06",
   "class": 5,
-  "section": 3
+  "section": "3"
 }, {
+  "admissionNumber": 72,
   "id": 72,
   "surName": "Wiley",
   "firstName": "Charles",
@@ -1152,8 +1231,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2016-06-22",
   "class": 5,
-  "section": 4
+  "section": "4"
 }, {
+  "admissionNumber": 73,
   "id": 73,
   "surName": "Harvey",
   "firstName": "Rosella",
@@ -1168,8 +1248,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2016-09-06",
   "class": 6,
-  "section": 1
+  "section": "1"
 }, {
+  "admissionNumber": 74,
   "id": 74,
   "surName": "Christian",
   "firstName": "Kerry",
@@ -1184,8 +1265,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2022-05-27",
   "class": 6,
-  "section": 2
+  "section": "2"
 }, {
+  "admissionNumber": 75,
   "id": 75,
   "surName": "Marquez",
   "firstName": "Hawkins",
@@ -1200,8 +1282,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2020-03-30",
   "class": 6,
-  "section": 3
+  "section": "3"
 }, {
+  "admissionNumber": 76,
   "id": 76,
   "surName": "Sellers",
   "firstName": "Benton",
@@ -1216,8 +1299,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2018-07-19",
   "class": 6,
-  "section": 4
+  "section": "4"
 }, {
+  "admissionNumber": 77,
   "id": 77,
   "surName": "Anderson",
   "firstName": "Glenn",
@@ -1232,8 +1316,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2018-06-18",
   "class": 7,
-  "section": 1
+  "section": "1"
 }, {
+  "admissionNumber": 78,
   "id": 78,
   "surName": "Hughes",
   "firstName": "Elvira",
@@ -1248,8 +1333,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2022-12-05",
   "class": 7,
-  "section": 2
+  "section": "2"
 }, {
+  "admissionNumber": 79,
   "id": 79,
   "surName": "Mclean",
   "firstName": "Cash",
@@ -1264,8 +1350,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2017-05-18",
   "class": 7,
-  "section": 3
+  "section": "3"
 }, {
+  "admissionNumber": 80,
   "id": 80,
   "surName": "Hull",
   "firstName": "Leanna",
@@ -1280,8 +1367,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2022-09-25",
   "class": 7,
-  "section": 4
+  "section": "4"
 }, {
+  "admissionNumber": 81,
   "id": 81,
   "surName": "Hoffman",
   "firstName": "Stewart",
@@ -1296,8 +1384,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2020-01-17",
   "class": 8,
-  "section": 1
+  "section": "1"
 }, {
+  "admissionNumber": 82,
   "id": 82,
   "surName": "Brooks",
   "firstName": "Josie",
@@ -1312,8 +1401,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2016-06-02",
   "class": 8,
-  "section": 2
+  "section": "2"
 }, {
+  "admissionNumber": 83,
   "id": 83,
   "surName": "Blanchard",
   "firstName": "Shelia",
@@ -1328,8 +1418,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2019-11-26",
   "class": 8,
-  "section": 3
+  "section": "3"
 }, {
+  "admissionNumber": 84,
   "id": 84,
   "surName": "Lopez",
   "firstName": "Jayne",
@@ -1344,8 +1435,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2020-01-14",
   "class": 8,
-  "section": 4
+  "section": "4"
 }, {
+  "admissionNumber": 85,
   "id": 85,
   "surName": "Nieves",
   "firstName": "Ginger",
@@ -1360,8 +1452,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2017-10-26",
   "class": 9,
-  "section": 1
+  "section": "1"
 }, {
+  "admissionNumber": 86,
   "id": 86,
   "surName": "Parker",
   "firstName": "Melendez",
@@ -1376,8 +1469,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2017-08-16",
   "class": 9,
-  "section": 2
+  "section": "2"
 }, {
+  "admissionNumber": 87,
   "id": 87,
   "surName": "Martinez",
   "firstName": "Earnestine",
@@ -1392,8 +1486,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2017-08-27",
   "class": 9,
-  "section": 3
+  "section": "3"
 }, {
+  "admissionNumber": 88,
   "id": 88,
   "surName": "Case",
   "firstName": "Marietta",
@@ -1408,8 +1503,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2020-12-07",
   "class": 9,
-  "section": 4
+  "section": "4"
 }, {
+  "admissionNumber": 89,
   "id": 89,
   "surName": "Durham",
   "firstName": "Kay",
@@ -1424,8 +1520,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2020-10-14",
   "class": 10,
-  "section": 1
+  "section": "1"
 }, {
+  "admissionNumber": 90,
   "id": 90,
   "surName": "Wiggins",
   "firstName": "Debra",
@@ -1440,8 +1537,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2016-03-27",
   "class": 10,
-  "section": 2
+  "section": "2"
 }, {
+  "admissionNumber": 91,
   "id": 91,
   "surName": "Shelton",
   "firstName": "Schroeder",
@@ -1456,8 +1554,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2018-12-04",
   "class": 10,
-  "section": 3
+  "section": "3"
 }, {
+  "admissionNumber": 92,
   "id": 92,
   "surName": "Mills",
   "firstName": "Shelley",
@@ -1472,8 +1571,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2021-12-16",
   "class": 10,
-  "section": 4
+  "section": "4"
 }, {
+  "admissionNumber": 93,
   "id": 93,
   "surName": "Crawford",
   "firstName": "Beck",
@@ -1488,8 +1588,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2021-12-21",
   "class": 11,
-  "section": 1
+  "section": "1"
 }, {
+  "admissionNumber": 94,
   "id": 94,
   "surName": "Reeves",
   "firstName": "Juliette",
@@ -1504,8 +1605,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2016-01-23",
   "class": 11,
-  "section": 2
+  "section": "2"
 }, {
+  "admissionNumber": 95,
   "id": 95,
   "surName": "Gillespie",
   "firstName": "Ayala",
@@ -1520,8 +1622,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2015-02-19",
   "class": 11,
-  "section": 3
+  "section": "3"
 }, {
+  "admissionNumber": 96,
   "id": 96,
   "surName": "Cox",
   "firstName": "Strong",
@@ -1536,8 +1639,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2014-07-03",
   "class": 11,
-  "section": 4
+  "section": "4"
 }, {
+  "admissionNumber": 97,
   "id": 97,
   "surName": "Wynn",
   "firstName": "Cortez",
@@ -1552,8 +1656,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2021-03-08",
   "class": 12,
-  "section": 1
+  "section": "1"
 }, {
+  "admissionNumber": 98,
   "id": 98,
   "surName": "Gutierrez",
   "firstName": "Roseann",
@@ -1568,8 +1673,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2019-06-20",
   "class": 12,
-  "section": 2
+  "section": "2"
 }, {
+  "admissionNumber": 99,
   "id": 99,
   "surName": "Workman",
   "firstName": "Jenifer",
@@ -1584,8 +1690,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2016-02-14",
   "class": 12,
-  "section": 3
+  "section": "3"
 }, {
+  "admissionNumber": 100,
   "id": 100,
   "surName": "Santos",
   "firstName": "Chaney",
@@ -1600,8 +1707,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2016-06-12",
   "class": 12,
-  "section": 4
+  "section": "4"
 }, {
+  "admissionNumber": 101,
   "id": 101,
   "surName": "Lynn",
   "firstName": "Natalia",
@@ -1616,8 +1724,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2022-06-22",
   "class": 13,
-  "section": 1
+  "section": "1"
 }, {
+  "admissionNumber": 102,
   "id": 102,
   "surName": "York",
   "firstName": "Ruby",
@@ -1632,8 +1741,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2018-07-07",
   "class": 13,
-  "section": 2
+  "section": "2"
 }, {
+  "admissionNumber": 103,
   "id": 103,
   "surName": "Schmidt",
   "firstName": "Banks",
@@ -1648,8 +1758,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2015-10-04",
   "class": 13,
-  "section": 3
+  "section": "3"
 }, {
+  "admissionNumber": 104,
   "id": 104,
   "surName": "Rice",
   "firstName": "Acevedo",
@@ -1664,8 +1775,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2019-10-20",
   "class": 13,
-  "section": 4
+  "section": "4"
 }, {
+  "admissionNumber": 105,
   "id": 105,
   "surName": "Schneider",
   "firstName": "Baxter",
@@ -1680,8 +1792,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2018-10-28",
   "class": 1,
-  "section": 1
+  "section": "1"
 }, {
+  "admissionNumber": 106,
   "id": 106,
   "surName": "Sherman",
   "firstName": "Workman",
@@ -1696,8 +1809,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2020-01-18",
   "class": 1,
-  "section": 2
+  "section": "2"
 }, {
+  "admissionNumber": 107,
   "id": 107,
   "surName": "Levine",
   "firstName": "Clarke",
@@ -1712,8 +1826,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2020-06-22",
   "class": 1,
-  "section": 3
+  "section": "3"
 }, {
+  "admissionNumber": 108,
   "id": 108,
   "surName": "Cantrell",
   "firstName": "Fay",
@@ -1728,8 +1843,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2022-09-13",
   "class": 1,
-  "section": 4
+  "section": "4"
 }, {
+  "admissionNumber": 109,
   "id": 109,
   "surName": "Lee",
   "firstName": "Sutton",
@@ -1744,8 +1860,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2017-06-17",
   "class": 2,
-  "section": 1
+  "section": "1"
 }, {
+  "admissionNumber": 110,
   "id": 110,
   "surName": "Obrien",
   "firstName": "Burgess",
@@ -1760,8 +1877,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2019-08-27",
   "class": 2,
-  "section": 2
+  "section": "2"
 }, {
+  "admissionNumber": 111,
   "id": 111,
   "surName": "Harper",
   "firstName": "Shari",
@@ -1776,8 +1894,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2019-02-04",
   "class": 2,
-  "section": 3
+  "section": "3"
 }, {
+  "admissionNumber": 112,
   "id": 112,
   "surName": "Reynolds",
   "firstName": "Daisy",
@@ -1792,8 +1911,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2020-07-29",
   "class": 2,
-  "section": 4
+  "section": "4"
 }, {
+  "admissionNumber": 113,
   "id": 113,
   "surName": "Hopper",
   "firstName": "Kitty",
@@ -1808,8 +1928,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2018-10-22",
   "class": 3,
-  "section": 1
+  "section": "1"
 }, {
+  "admissionNumber": 114,
   "id": 114,
   "surName": "Salas",
   "firstName": "Puckett",
@@ -1824,8 +1945,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2015-01-07",
   "class": 3,
-  "section": 2
+  "section": "2"
 }, {
+  "admissionNumber": 115,
   "id": 115,
   "surName": "Ortega",
   "firstName": "Linda",
@@ -1840,8 +1962,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2015-09-20",
   "class": 3,
-  "section": 3
+  "section": "3"
 }, {
+  "admissionNumber": 116,
   "id": 116,
   "surName": "Adams",
   "firstName": "Becker",
@@ -1856,8 +1979,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2019-07-26",
   "class": 3,
-  "section": 4
+  "section": "4"
 }, {
+  "admissionNumber": 117,
   "id": 117,
   "surName": "Byrd",
   "firstName": "Sanders",
@@ -1872,8 +1996,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2017-05-19",
   "class": 4,
-  "section": 1
+  "section": "1"
 }, {
+  "admissionNumber": 118,
   "id": 118,
   "surName": "Lucas",
   "firstName": "Alma",
@@ -1888,8 +2013,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2014-10-02",
   "class": 4,
-  "section": 2
+  "section": "2"
 }, {
+  "admissionNumber": 119,
   "id": 119,
   "surName": "Strong",
   "firstName": "Duffy",
@@ -1904,8 +2030,9 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2014-10-08",
   "class": 4,
-  "section": 3
+  "section": "3"
 }, {
+  "admissionNumber": 120,
   "id": 120,
   "surName": "Rose",
   "firstName": "Goodwin",
@@ -1920,7 +2047,7 @@ const STUDENTS = [{
   "zip": 54365,
   "dateOfBirth": "2014-07-10",
   "class": 4,
-  "section": 4
+  "section": "4"
 }]
   
 
@@ -1929,8 +2056,12 @@ const STUDENTS = [{
 })
 export class StudentsService {
     
-    getStudents(){
-      return of(STUDENTS);
+    getStudents(data: any){
+      const classNumber = data.selectedGrade.classNumber;
+      const selectedSections = data.selectedSections.map((s: any) => s.id);
+      return of(STUDENTS.filter((s: any) => {
+        return s.class === classNumber && selectedSections.includes(s.section)
+      }));
     }
 
     validateNewStudents(){

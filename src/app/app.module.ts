@@ -21,15 +21,16 @@ import { SchoolLayoutComponent } from './layouts/school-layout/school-layout.com
     HttpClientModule,
     ComponentsModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   declarations: [
     AppComponent,
     SchoolLayoutComponent,
     AuthLayoutComponent,
-    HomeLayoutComponent
+    HomeLayoutComponent,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports:[]
 })
 export class AppModule { }

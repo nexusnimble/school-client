@@ -1,0 +1,138 @@
+  <!-- Page content -->
+  <div class="container-fluid mt--9">
+    <ng-template #newStudentsModal let-c="close" let-d="dismiss">
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Number of students to be added: {{newStudents.length}} </h4>        
+        <button class="btn btn-warning btn-sm"> Upload students </button>
+      </div>
+      <div class="modal-body">
+        <table class="table align-items-center table-flush">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">
+                #
+              </th>
+              <th scope="col">
+                student name
+              </th>
+              <th scope="col">
+                date of birth
+              </th>
+              <th scope="col">
+                parent name
+              </th>
+              <th scope="col" style="width: 20%">
+                address
+              </th>
+              <th scope="col">
+                phone
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let student of newStudents; let i = index">
+              <td>
+                {{ i + 1 }}
+              </td>
+              <td>
+                <span class="font-weight-bold"> {{student.surName}} {{student.name}} </span> 
+              </td>
+              <td>
+                {{student.dateOfBirth | date: "MMM d y"}}
+              </td>
+              <td>
+                {{student.parentName}}
+              </td>
+              <td style="width: 20%">
+                {{student.address}}
+              </td>
+              <td>
+                {{student.phone}}
+              </td>
+            </tr>
+          </tbody>  
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-danger" (click)="c('Save click')">Cancel</button>
+        <button type="button" class="btn btn-outline-success" (click)="c('Save click')">Save students</button>
+      </div>
+    </ng-template>
+    
+    <app-class-filter (onFilter)="onFilter($event)"></app-class-filter>
+    <input style="display: none; visibility: hidden;" type="file" #fileImportInput name="File Upload" id="csvFileUpload" (change)="fileChangeListener($event, newStudentsModal)"
+    accept=".csv" />
+    <!-- Table -->
+    <div class="row">
+      <div class="col">
+        <div *ngIf="selectedGrade && selectedSections.length" class="card shadow">
+          <div class="card-header border-0 d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+              <div class="form-group mb-0" >
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" 
+                      style="border-top-left-radius: 1.3rem;border-bottom-left-radius: 1.3rem;">
+                      <i class="fas fa-search"></i>
+                    </span>
+                  </div>
+                  <input class="form-control" placeholder="Search" type="text" (input)="onSearch($event)"
+                    style="border-top-right-radius: 1.3rem; border-bottom-right-radius: 1.3rem; width: 15rem;"
+                  >  
+                </div>
+              </div>
+              <span class="font-weight-bold ml-2"> {{students.length}} students found </span>
+            </div>
+            <div>
+              <a [routerLink]="['create']" class="btn btn-primary"> Add student </a>
+              <button class="btn btn-info" (click)="onUploadStudents()"> Upload students </button>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <div>
+              <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                  <tr *ngIf="sortOptions$ | async as sortingOptions">
+                    <th scope="col">
+                      <div class="d-flex align-items-center">
+                        <span 
+                          class="cursor-pointer"
+                          (click)="onSort('Studet name')"
+                          > 
+                          Student name
+                        </span>
+                        <div class="d-flex flex-column ml-2">
+                          <i class="ni ni-bold-up" [ngClass]="{ 'grey-color' : sortingOptions.direction === 'asc', 'lightgray-color' : sortingOptions.direction != 'asc' }" ></i>
+                          <i class="ni ni-bold-down" [ngClass]="{ 'grey-color' : sortingOptions.direction === 'desc', 'lightgray-color' : sortingOptions.direction !== 'desc' }" ></i>
+                        </div>
+                      </div>
+                    </th>
+
+                    <th scope="col">
+                      test    
+                    </th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let student of students">
+                    <td>
+                      <span class="font-weight-bold"> {{student.surName}} {{student.firstName}} {{student.lastName}} </span> 
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="!selectedGrade || !selectedSections.length" class="card shadow empty-card">
+          <div class="card-body text-muted pt-8">
+            Please select class and section
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  

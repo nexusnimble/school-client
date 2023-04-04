@@ -15,12 +15,13 @@ export class AttendanceComponent {
     selectedSections: any = [];
     attendance: any = {};
     students: any = [];
+    allAttendance: boolean = false;
+    private totalStudents: any[] = [];
+
     columns = [{
         title: "Student name"
     }, {
-      title: "Parent name"
-    }, {
-      title: "Date of birth"
+      title: "Parent / gardian"
     },    
     {
       title: "Address"
@@ -48,32 +49,27 @@ export class AttendanceComponent {
           });
       }
 
+
     onFilter(data: any){
         this.selectedGrade = data.selectedGrade;
         this.selectedSections = data.selectedSections;
 
-        if(this.selectedGrade && this.selectedSections.length){
-          this.studentsService.getStudents().subscribe(data => {
-            this.students = data.slice(0,10);
+        if(this.selectedGrade && this.selectedSections.length) {
+          this.studentsService.getStudents({
+            selectedGrade: this.selectedGrade,
+            selectedSections: this.selectedSections
+          }).subscribe(data => {
+            this.students = data;
+            this.totalStudents = data;
+            this.allAttendance = false;
+            this.onAllChange();
           });
-          /*
-          setTimeout(() => {
-            this.chackAll.nativeElement.indeterminate = true;
-          })
-          */
         }
     }
 
-    onCheckAll(){
-      if(this.chackAll.nativeElement.checked){
-          
-      } else {
-
-      }
-    }
-
-    onAllChange(event: any) {
-      if(event.currentTarget.checked){
+    onAllChange() {
+      this.allAttendance = !this.allAttendance;
+      if(this.allAttendance){
         const attendance: any = {};
         this.students.forEach((s: any) => {
           attendance[s.id] = true;
@@ -83,5 +79,15 @@ export class AttendanceComponent {
         this.attendance = {};
       };
     }
+
+    onAttendance(studentId: string){
+      this.attendance[studentId] = !this.attendance[studentId];
+    }
+
+    onSearch(e: Event){
+      const query = (e.currentTarget as HTMLInputElement).value;
+      //this.searchQuery$.next(query);
+    }
+
   
 }

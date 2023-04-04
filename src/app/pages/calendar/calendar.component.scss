@@ -1,0 +1,23 @@
+::ng-deep{
+    .cal-month-view .cal-day-cell{
+        min-height: 0px;
+    }
+    .cal-month-view .cal-day-number{
+        margin: 0;
+        opacity: 1;
+    }
+    .cal-month-view .cal-cell-top{
+        min-height: 50px;
+    } 
+    .cal-month-view .cal-day-cell.cal-today .cal-day-number{
+        font-size: 1.2rem;
+    }
+    .cal-month-view .cal-cell-top{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .cal-month-view .cal-day-cell.cal-weekend .cal-day-number {
+        color: #fb6340;
+    }
+}

@@ -1,0 +1,139 @@
+<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center">
+    <span class="mask bg-gradient-danger opacity-8"></span>    
+</div>
+
+<div class="container-fluid mt--7">
+    <div class="row">
+      <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
+        <div class="card card-profile shadow">
+          <div class="row justify-content-center">
+            <div class="col-lg-3 order-lg-2">
+              <div class="card-profile-image">
+                <a href="javascript:void(0)">
+                  <img src="assets/profile.jpeg" class="rounded-circle">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4" style="min-height: 16rem; padding-top: 10rem !important">
+            <button class="btn btn-sm btn-primary"> Change logo </button>
+            <p class="mt-2"> 
+              <b> School Id : test-school-1 </b>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-8 order-xl-1">
+        <div class="card bg-secondary shadow p-3" style="min-height: 20rem">
+            <ul class="nav nav-tabs">
+                <li class="nav-item" *ngFor="let detailSection of detailSections">
+                  <a class="nav-link" href="" 
+                    style="padding: 0.8rem"
+                    [ngClass]="{ 'active' : selectedSection.title === detailSection.title }" 
+                     (click)="onSelect($event, detailSection)"> 
+                        {{detailSection.title}} 
+                  </a>
+                </li>
+              </ul>
+
+              <div class="p-2 pt-4">
+                  <div *ngIf="selectedSection.id === 'school-information'">
+                    <div  class="pl-lg-4">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-username">School name</label>
+                                    <input class="form-control form-control-alternative" id="input-username" placeholder="School name" type="text">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="school-email">School email</label>
+                                    <input class="form-control form-control-alternative" id="school-email" placeholder="jesse@example.com" type="email"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-first-name">School contact number</label>
+                                    <input class="form-control form-control-alternative" id="input-first-name" placeholder="9999999999" type="text" value="Lucky"></div>
+                            </div>
+                        </div>
+                    </div>  
+                  </div>
+    
+                  <div *ngIf="selectedSection.id === 'contact-information'">
+                    <div class="pl-lg-4">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="form-group">
+                              <label class="form-control-label" for="input-address">Address</label>
+                              <input type="text" id="input-address" class="form-control form-control-alternative" placeholder="Home Address">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-lg-4">
+                            <div class="form-group">
+                              <label class="form-control-label" for="input-city">City</label>
+                              <input type="text" id="input-city" class="form-control form-control-alternative" placeholder="City">
+                            </div>
+                          </div>
+                          <div class="col-lg-4">
+                            <div class="form-group">
+                              <label class="form-control-label" for="state">State</label>
+                              <input type="text" id="input-state" class="form-control form-control-alternative" placeholder="State">
+                            </div>
+                          </div>
+                          <div class="col-lg-4">
+                            <div class="form-group">
+                              <label class="form-control-label" for="input-country">Postal code</label>
+                              <input type="number" id="input-postal-code" class="form-control form-control-alternative" placeholder="Postal code">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+    
+                  <div *ngIf="selectedSection.id === 'principal-information'">
+                    <div  class="pl-lg-4">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-username">Name</label>
+                                    <input class="form-control form-control-alternative" id="principal-name" placeholder="Name" type="text" value=""></div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-email">Date of birth</label>
+                                    <input class="form-control form-control-alternative" id="principal-dob" placeholder="11/11/2000" type="date"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-first-name">Qualification</label>
+                                    <input class="form-control form-control-alternative" id="principal-qualification" placeholder="Qualification" type="text"></div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="principal-contact">Contact number</label>
+                                    <input class="form-control form-control-alternative" id="principal-contact" placeholder="9999999999" type="text"></div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+
+                  <hr>
+                  <div class="pl-lg-4">
+                      <button class="btn btn-sm btn-secondary"> Cancel </button>
+                      <button class="btn btn-sm btn-warning"> Update </button>
+                  </div>
+
+    
+              </div>
+
+        </div>
+      </div>
+    </div>
+  </div>

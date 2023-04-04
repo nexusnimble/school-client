@@ -1,5 +1,3 @@
-<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8"> </div>
-
 <div class="container-fluid mt--8">
     <ng-template #examModal let-c="close" let-d="dismiss">
         <div class="modal-header">
@@ -8,39 +6,42 @@
         <div class="modal-body">
             <form>
                 <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="examname" class="form-control-label"> Exam name </label>
+                      <input type="text" class="form-control" />
+                    </div>
+                  </div>
+
+
                   <app-class-filter (onFilter)="onFilter($event)"></app-class-filter>
-  
+                  
                   <div class="col-md-12">
-                    <div class="form-group">
-                        <label for="surname" class="form-control-label"> Select subject </label>
-                        <div class="d-flex">
-                            <button type="button" class="btn btn-sm"
-                            [ngClass]="(selectedSubject &&  selectedSubject.title === subject.title )   ? 'btn-info' : 'btn-outline-info'"
-                            (click)="onSubjectSelection(subject)"
-                            *ngFor="let subject of subjects"> 
-                                {{subject.title}}
-                            </button>                            
+                    <div class="row align-items-center mb-2" *ngFor="let subject of subjects">
+                      <div class="col-md-2">
+                        <b> {{subject.title}} </b>
+                      </div>
+                      
+                      <div class="col-md-3">
+                        <div class="form-group mb-0">
+                          <input type="date" class="form-control" />
                         </div>
+                      </div>
+  
+                      <div class="col-md-3">
+                        <div class="form-group mb-0">
+                          <input type="time" class="form-control" />
+                        </div>
+                      </div>
+
+                      <div class="col-md-3">
+                        <div class="form-group mb-0">
+                          <input type="time" class="form-control" />
+                        </div>
+                      </div>
+  
                     </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div class="form-group">
-                        <label for="surname" class="form-control-label"> Exam date </label>
-                        <input type="date" class="form-control" />
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                        <label class="form-control-label"> Start time </label>      
-                        <input type="time" class="form-control" />
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label class="form-control-label"> End time </label>      
-                        <input type="time" class="form-control" />
-                    </div>
-                </div>
+                   </div>
               </div>
             </form>
         </div>

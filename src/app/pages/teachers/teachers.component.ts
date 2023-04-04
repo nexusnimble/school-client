@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { NgbModalConfig, NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { Subscription } from "rxjs";
+import { ApiService } from "src/app/services/api.service";
 import { TeachersService } from "src/app/services/teachers.service";
 
 @Component({
@@ -27,6 +28,7 @@ export class TeachersComponent implements OnInit, OnDestroy{
         private teachersService: TeachersService,
         config: NgbModalConfig, 
         private modalService: NgbModal,
+        private apiService: ApiService
         ){
             config.backdrop = 'static';
             config.size = 'lg';
@@ -38,6 +40,7 @@ export class TeachersComponent implements OnInit, OnDestroy{
         this.sub = this.teachersService.getTeachers().subscribe((data) => {
             this.teachers = data;
         });
+        this.apiService.getTeachers();
     }
 
     onAddTeacher(content: any){

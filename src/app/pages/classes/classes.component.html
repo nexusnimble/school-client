@@ -1,7 +1,4 @@
-<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8"> </div>
-
 <div class="container-fluid mt--8">
-
     <ng-template #classModal let-c="close" let-d="dismiss">
         <div class="modal-header">
           <h4 class="modal-title text-uppercase" id="modal-basic-title"> Add a new class </h4>             
@@ -90,9 +87,27 @@
                         {{classItem.className}}
                       </td>
                       <td>
-                        <span style="font-size: 0.75rem" class="badge badge-primary m-1" *ngFor="let sec of classItem.sections">
+                        <div *ngFor="let sec of classItem.sections">
+                          <div class="row mb-1">
+                            <div class="col-md-4">
+                              <span class="badge badge-primary" style="font-size: 100%"> {{sec.title}} </span>
+                            </div>
+                            <div class="col-md-8">
+                              <span class="badge badge-warning mr-1" style="font-size: 100%"> subject 1 </span>
+                              <span class="badge badge-warning mr-1" style="font-size: 100%"> subject 2 </span>
+                              <span class="badge badge-warning mr-1" style="font-size: 100%"> subject 3 </span>
+                              <span class="badge badge-warning mr-1" style="font-size: 100%"> subject 4 </span>
+                            </div>
+
+                          </div>
+                          
+                        </div>
+                        <!--
+                          <div style="font-size: 0.75rem" style="display: block" class="badge badge-primary m-1" *ngFor="let sec of classItem.sections">
                           {{ sec.title }}
-                        </span>
+                        </div>
+                        -->
+                        
                       </td>
                       <td>
                         <b> {{classItem.teacher}} </b>

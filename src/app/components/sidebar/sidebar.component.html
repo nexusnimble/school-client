@@ -7,7 +7,7 @@
     </button>
     <!-- Brand -->
     <a class="navbar-brand pt-0" routerLinkActive="active" [routerLink]="['/dashboard']">
-      <span style="font-size: 2rem; color: red; font-weight: bold;">
+      <span style="font-size: 2rem; color: #03045E; font-weight: bold;">
         School Logo
       </span>
       
@@ -68,13 +68,13 @@
       <!-- Collapse header -->
       <div class="navbar-collapse-header d-md-none">
         <div class="row">
-          <!--
           <div class="col-6 collapse-brand">
-            <a  routerLinkActive="active" [routerLink]="['/dashboard']">
-              <img src="./assets/img/brand/blue.png">
+            <a  routerLinkActive="active" [routerLink]="['/dashboard']">              
+              <!-- <img src="./assets/img/brand/blue.png"> -->
+              School Name
             </a>
           </div>
-          -->
+        
           <div class="col-6 collapse-close">
             <button type="button" class="navbar-toggler" (click)="isCollapsed=!isCollapsed">
               <span></span>
@@ -98,7 +98,7 @@
       <ul class="navbar-nav">
           <li *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
               <a routerLinkActive="active" [routerLink]="['../school',menuItem.path]" class="nav-link">
-                  <i class="ni {{menuItem.icon}}"></i>
+                  <i class="bi {{menuItem.icon}}"></i>
                   {{menuItem.title}}
               </a>
           </li>
@@ -127,21 +127,13 @@
       </ul>
       -->
 
-      <h6 class="navbar-heading text-muted">My School</h6>
+      <h6 class="navbar-heading text-muted">
+        My School
+      </h6>
       <ul class="navbar-nav mb-md-3">
-        <li class="nav-item">
-          <a class="nav-link">
-            <i class="ni ni-spaceship"></i> Classes
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link">
-            <i class="ni ni-palette"></i> teachers
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link">
-            <i class="ni ni-ui-04"></i> fees
+        <li class="nav-item" *ngFor="let menuItem of schoolMenuItems" class="{{menuItem.class}} nav-item">
+          <a routerLinkActive="active" [routerLink]="['../school',menuItem.path]" class="nav-link">
+            <i class="ni {{menuItem.icon}}"></i> {{menuItem.title}}
           </a>
         </li>
       </ul>

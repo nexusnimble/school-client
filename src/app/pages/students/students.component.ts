@@ -20,11 +20,11 @@ type SORT_DIRECTION = '' | 'asc' | 'desc';
 export class StudentsComponent implements OnInit{
     @ViewChild('fileImportInput') fileImportInput: ElementRef | undefined;
     columns = [
+        { title: 'Admission number' },
         { title: 'Student name', sortable: true },
         { title: 'Class' },
         { title: 'Section' },
         { title: 'Phone' },
-        { title: 'Actions' },
         { title: 'Details' }
     ]
     
@@ -66,7 +66,7 @@ export class StudentsComponent implements OnInit{
         let students;
         if(query) {
           const pattern = new RegExp(query, 'i');
-          students = this.totalStudents.filter((s) => pattern.test(s.name))
+          students = this.totalStudents.filter((s) => pattern.test(s.surName) || pattern.test(s.firstName) || pattern.test(s.lastName) )
         } else {
           students = this.totalStudents;
         }
@@ -82,11 +82,6 @@ export class StudentsComponent implements OnInit{
 
       });
 
-      this.searchQuery$.pipe(
-        debounceTime(300)
-      ).subscribe((query: string) => {
-        
-      })
     }
 
     onFilter(data: any) {
@@ -94,7 +89,10 @@ export class StudentsComponent implements OnInit{
       this.selectedSections = data.selectedSections;
 
       if(this.selectedGrade && this.selectedSections.length){
-        this.studentsService.getStudents().subscribe((data) => {
+        this.studentsService.getStudents({
+          selectedGrade: this.selectedGrade,
+          selectedSections: this.selectedSections
+        }).subscribe((data) => {
           this.students = data;
           this.totalStudents = data;
         });

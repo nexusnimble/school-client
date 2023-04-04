@@ -16,52 +16,31 @@
               </div>
             </div>
           </div>
-          <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
-            
-          </div>
-          <div class="card-body pt-0 pt-md-4">
-            <div class="row">
-              <div class="col">
-                <div class="card-profile-stats d-flex justify-content-center mt-md-5">
-                  <div>
-                    <span class="heading">22</span>
-                    <span class="description">Friends</span>
-                  </div>
-                  <div>
-                    <span class="heading">10</span>
-                    <span class="description">Photos</span>
-                  </div>
-                  <div>
-                    <span class="heading">89</span>
-                    <span class="description">Comments</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="text-center">
-              <h3>
-                Jessica Jones<span class="font-weight-light">, 27</span>
-              </h3>
-              <div class="h5 font-weight-300">
-                <i class="ni location_pin mr-2"></i>Bucharest, Romania
-              </div>
-              <div class="h5 mt-4">
-                <i class="ni business_briefcase-24 mr-2"></i>Solution Manager - Creative Tim Officer
-              </div>
-              <div>
-                <i class="ni education_hat mr-2"></i>University of Computer Science
-              </div>
-              <hr class="my-4" />
-              <p>Ryan — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music.</p>
-              <a href="javascript:void(0)">Show more</a>
-            </div>
+          <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4" 
+               style="min-height: 16rem;  padding-top: 10rem !important;">
+              <button class="btn btn-sm btn-warning"> update photo </button>
+              <p class="mt-2"> 
+                Admission number: {{student.admissionNumber}}  
+              </p>
           </div>
         </div>
       </div>
       <div class="col-xl-8 order-xl-1">
         <div class="card bg-secondary shadow">
-          <div class="card-header bg-white border-0">
-            <div class="row align-items-center">
+          <div class="card-header bg-secondary border-0">
+            <ul class="nav nav-tabs">
+              <li class="nav-item" *ngFor="let detailSection of detailSections">
+                <a class="nav-link" href="" 
+                  style="padding: 0.8rem"
+                  [ngClass]="{ 'active' : selectedSection.title === detailSection.title }" 
+                   (click)="onSelect($event, detailSection)"> 
+                   <b class="heading-small text-muted">{{ detailSection.title }}</b> 
+                </a>
+              </li>
+            </ul>
+            
+            <!--
+            <div class="row align-items-center">              
               <div class="col-8">
                 <h3 class="mb-0">
                     {{ isNew ?  'Add a new student' : 'Update the student'  }}</h3>
@@ -70,35 +49,28 @@
                 <button (click)="onSubmit()" class="btn btn-sm btn-primary">
                     {{ isNew ? 'add' : 'update' }}
                 </button>
+                <a [routerLink]="['students']" class="btn btn-sm btn-secondary"> cancel </a>
               </div>
             </div>
+            -->
           </div>
           <div class="card-body">
             <form [formGroup]="studentForm">
-              <h6 class="heading-small text-muted mb-4">Student information</h6>
-              <div class="pl-lg-4">
+              <div class="pl-lg-4" *ngIf="selectedSection.id === 'student'">
                 <div class="row">
-                  <div class="col-lg-6">
-                    <div class="form-group">
-                      <label class="form-control-label" for="surname">Sur name</label>
-                      <input type="text" formControlName="surName" id="surname" class="form-control form-control-alternative" placeholder="Sur name" value="lucky">
-                    </div>
-                  </div>
-                  <div class="col-lg-6">
+                  <div class="col-lg-4">
                     <div class="form-group">
                       <label class="form-control-label" for="firstname">First name</label>
                       <input type="text" formControlName="firstName" id="firstname" class="form-control form-control-alternative" placeholder="first name">
                     </div>
                   </div>
-                </div>
-                <div class="row">
-                  <div class="col-lg-6">
+                  <div class="col-lg-4">
                     <div class="form-group">
-                      <label class="form-control-label" for="middlename">First name</label>
+                      <label class="form-control-label" for="middlename">Middle name</label>
                       <input type="text" formControlName="middleName" id="middlename" class="form-control form-control-alternative" placeholder="Middle name" value="Lucky">
                     </div>
                   </div>
-                  <div class="col-lg-6">
+                  <div class="col-lg-4">
                     <div class="form-group">
                       <label class="form-control-label" for="lastname">Last name</label>
                       <input type="text" formControlName="lastName" id="lastname" class="form-control form-control-alternative" placeholder="Last name" value="Jesse">
@@ -106,25 +78,27 @@
                   </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-4">
                       <div class="form-group">
                         <label class="form-control-label" for="gender">Gender</label>
                         <select id="gender" formControlName="gender" class="form-control form-control-alternative" placeholder="Select gender">
                             <option value="male"> Male </option>
+                            <option value="female"> Female </option>
+                            <option value="other"> Other </option>
                         </select>
                       </div>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-4">
                       <div class="form-group">
                         <label class="form-control-label" for="dob">Date of birth</label>
                         <input type="date" formControlName="dob" id="dob" class="form-control form-control-alternative" placeholder="DD/MM/YYYY">
                       </div>
                     </div>
-                  </div>
-              </div>
-              <hr class="my-4" />
-              <h6 class="heading-small text-muted mb-4">Parent information</h6>
-              <div class="pl-lg-4">
+                  </div>              
+                </div>
+
+
+              <div class="pl-lg-4" *ngIf="selectedSection.id === 'parent'">
                 <div class="row">
                   <div class="col-lg-6">
                     <div class="form-group">
@@ -140,10 +114,9 @@
                   </div>
                 </div>
               </div>
-              <hr class="my-4" />
+
               <!-- Address -->
-              <h6 class="heading-small text-muted mb-4">Contact information</h6>
-              <div class="pl-lg-4">
+              <div class="pl-lg-4" *ngIf="selectedSection.id === 'contact'">
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group">
@@ -173,6 +146,65 @@
                   </div>
                 </div>
               </div>
+
+              <!-- Attendance -->
+
+              <div class="pl-lg-4" *ngIf="selectedSection.id === 'attendance'">
+                <app-calendar></app-calendar>
+              </div>
+        
+              <!-- Exams -->
+              <div class="pl-lg-4" *ngIf="selectedSection.id === 'exams'">
+                <div class="row">
+                  <div class="col-md-6" *ngFor="let exam of exams">
+                    <div class="card shadow" style="height: 100%">
+                      <div class="card-header border-0">
+                        <div class="row align-items-center">
+                          <div class="col">
+                            <h3 class="mb-0">{{exam.name}}</h3>
+                          </div>
+                          <div class="col text-right">
+                            <a href="#!" class="btn btn-sm btn-primary">Report card</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="table-responsive">
+                        <!-- Projects table -->
+                        <table class="table align-items-center table-flush">
+                          <thead class="thead-light">
+                            <tr>
+                              <th scope="col">subject</th>
+                              <th scope="col">grade</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let res of exam.result">
+                              <th scope="row">
+                                {{res.subject}}
+                              </th>
+                              <td>
+                                {{res.grade}}
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+  
+                  </div>  
+                </div>
+              </div>
+
+              <ng-container *ngIf="selectedSection.id === 'student'">
+                <hr>
+                <div class="pl-lg-4">
+                    <button class="btn btn-sm btn-secondary"> Cancel </button>
+                    <button class="btn btn-sm btn-warning"> Update </button>
+                </div>  
+              </ng-container>
+
+
+
             </form>
           </div>
         </div>
