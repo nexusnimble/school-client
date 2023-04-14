@@ -17,8 +17,8 @@
                         <label class="form-control-label"> Sections </label>
                         <div class="row ml-3 sections">
                             <span class="badge badge-primary d-flex align-items-center mr-1 mb-1" *ngFor="let section of sections"> 
-                                {{section.title}} 
-                                <i style="cursor: pointer;" class="ni ni-fat-remove" (click)="onSectionRemove(section)"></i>
+                                {{section.title}}
+                                <i style="cursor: pointer; margin-left: 3px" class="bi bi-x-circle-fill" (click)="onSectionRemove(section)"></i>
                             </span>
                             <span class="badge badge-primary ml-1" *ngIf="newSection"> 
                                 <input #newSectionInput type="text" id="new-section-input" class="new-section" (keyup.enter)="onNewSectionEnter($event)" /> 

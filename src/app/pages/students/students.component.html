@@ -102,8 +102,8 @@
                           {{column.title}} 
                         </span>
                         <div class="d-flex flex-column ml-2" *ngIf="column.sortable">
-                          <i class="ni ni-bold-up" [ngClass]="{ 'grey-color' : sortingOptions.direction === 'asc', 'lightgray-color' : sortingOptions.direction != 'asc' }" ></i>
-                          <i class="ni ni-bold-down" [ngClass]="{ 'grey-color' : sortingOptions.direction === 'desc', 'lightgray-color' : sortingOptions.direction !== 'desc' }" ></i>
+                          <i style="height: 0.5rem" class="bi bi-caret-up-fill" [ngClass]="{ 'grey-color' : sortingOptions.direction === 'asc', 'lightgray-color' : sortingOptions.direction != 'asc' }" ></i>
+                          <i class="bi bi-caret-down-fill" [ngClass]="{ 'grey-color' : sortingOptions.direction === 'desc', 'lightgray-color' : sortingOptions.direction !== 'desc' }" ></i>
                         </div>
                       </div>
                     </th>
@@ -129,8 +129,8 @@
                     <td>
                       <!-- [routerLink]="[ student.id ]"  -->
                       <a [routerLink]="['edit', student.id ]">
-                        <i class="ni ni-bold-right"
-                          style="font-size: 1.2rem; cursor: pointer;"
+                        <i class="bi bi-arrow-right-circle-fill"
+                          style="font-size: 1.5rem; cursor: pointer;"
                         ></i>
                       </a>
                     </td>

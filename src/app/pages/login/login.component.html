@@ -22,7 +22,9 @@
     
       <div class="mb-2">
         <div class="alert alert-warning" role="alert" *ngIf="isCredError">
-          <span class="alert-inner--icon"><i class="ni ni-button-power"></i></span>
+          <span class="alert-inner--icon">
+            <i class="bi bi-info-circle-fill"></i>
+          </span>
           <span class="alert-inner--text">
             School name/password credentials are wrong. <br>
             Please contact admin for credentials.
@@ -36,7 +38,7 @@
             <div class="form-group mb-3" [ngClass]="{'has-danger': ((schoolLoginForm.controls.schoolName.touched || isSubmitted) && schoolLoginForm.controls.schoolName.errors) }">
               <div class="input-group input-group-alternative">
                 <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                  <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
                 </div>
                 <input class="form-control form-control-alternative" [ngClass]="{'is-invalid': ((schoolLoginForm.controls.schoolName.touched || isSubmitted) && schoolLoginForm.controls.schoolName.errors) }" placeholder="School name" 
                   type="text" formControlName="schoolName">
@@ -45,7 +47,7 @@
             <div class="form-group" [ngClass]="{'has-danger': ((schoolLoginForm.controls.password.touched || isSubmitted) && schoolLoginForm.controls.password.errors) }">
               <div class="input-group input-group-alternative">
                 <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                  <span class="input-group-text"><i class="bi bi-key-fill"></i></span>
                 </div>
                 <input class="form-control" [ngClass]="{'is-invalid': ((schoolLoginForm.controls.password.touched || isSubmitted) && schoolLoginForm.controls.password.errors) }" placeholder="Password" type="password"
                   formControlName="password">

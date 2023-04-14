@@ -1,0 +1,22 @@
+.color-indication {
+    height: 10px;
+    width: 10px;
+    margin-right: 0.5rem;
+    border-radius: 50%;
+}
+
+.working-day{
+    background-color: green;
+}
+
+.public-holiday{
+    background-color: orange;
+}
+
+.week-end{
+    background-color: blue;
+}
+
+.school-holiday{
+    background-color: red;
+}
